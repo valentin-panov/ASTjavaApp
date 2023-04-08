@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>definitely-not-vulnerable-app</artifactId>
+    <artifactId>ASTjavaApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>definitely-not-vulnerable-app</name>
-    <description>Definitely not vulnerable app</description>
+    <name>ASTjavaApp</name>
+    <description>Definitely vulnerable app</description>
 
     <properties>
         <java.version>11</java.version>
@@ -50,10 +50,6 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-java8time</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-core</artifactId>
         </dependency>
 
         <dependency>
