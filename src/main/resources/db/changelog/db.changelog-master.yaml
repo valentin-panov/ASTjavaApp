@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: duff
+      changes:
+        - createTable:
+            tableName: user_data
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(255)
+              - column:
+                  name: email
+                  type: varchar(1024)
+              - column:
+                  name: payment_data_id
+                  type: varchar(255)
+        - createTable:
+            tableName: payment_data
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: card_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expired_in
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cvc
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: payment_data_id
+            baseTableName: user_data
+            constraintName: fk_user_payment_data
+            referencedColumnNames: id
+            referencedTableName: payment_data
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: user_data_unique_name
+            tableName: user_data
